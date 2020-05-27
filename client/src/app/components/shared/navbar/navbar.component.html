@@ -1,0 +1,25 @@
+<header>
+  <div class="container">
+    <nav>
+      <a routerLink="/" class="navbar-logo">Todo</a>
+      <ul class="nav-links" *ngIf="!isAuthenticated else loggedInBlock">
+          <li class="nav-item">
+              <a routerLink="/login" class="nav-link">Login</a>
+          </li>
+      </ul> 
+      <ng-template #loggedInBlock>
+        <ul class="nav-links">
+          <li class="nav-item">
+            <a [routerLink]="['/', user.username]" class="nav-link">{{user.username}} My Todos</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Avatar</a>
+          </li>
+          <li class="nav-item">
+            <button type="submit" class="btn" (click) ="logOut($event)">Logout</button>
+          </li>
+        </ul>
+      </ng-template>
+    </nav>
+  </div> 
+</header>

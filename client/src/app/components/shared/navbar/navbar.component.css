@@ -1,0 +1,30 @@
+header{
+    background-color: rgb(204, 204, 204);
+}
+nav{
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar-logo{
+    font-size: 3rem;
+    color: red;
+}
+
+.nav-links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-item{
+    margin-right: 1.2rem;
+    
+}
+.nav-item:last-child{
+    margin-right: 0;
+}
+.nav-link{
+    font-size: 1.5rem;
+    color: #000;
+}

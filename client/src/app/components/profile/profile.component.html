@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="todo-container">
+        <div class="loading-todos" *ngIf="isFetchingTodos else todoBlock">
+          
+        </div>
+        <ng-template #todoBlock>
+          <div *ngIf="todos?.length > 0 else noTodoBlock">
+              <app-todo-single 
+                *ngFor="let todo of todos" 
+                [todo]="todo" 
+                (onChecked) = "onChecked($event)"
+                (onDeleted) = "onDeleted($event)"
+                (onTagDeleted) = "onTagDeleted($event)">
+              </app-todo-single>
+          </div>
+          <ng-template #noTodoBlock>
+              <div>
+                  <p>
+                      No todos
+                  </p>
+              </div>
+          </ng-template>
+        </ng-template>
+    </div>
+    <app-add-todo-form 
+    [isModalOpen]="isModalOpen" 
+    (onModalClosed)="onModalClosed($event)"
+      (onTodoAdd)="onTodoAdd($event)"></app-add-todo-form>
+    <div class="add-todo" (click)="openModal()">
+      <i class="fas fa-book"></i>
+    </div>
+</div>
+

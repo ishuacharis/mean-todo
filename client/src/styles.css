@@ -1,0 +1,172 @@
+/* You can add global styles to this file, and also import other style files */
+*,*::before,*::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.link{
+    font-size: 1.5rem;
+    color: red;
+}
+.btn {
+    padding: 0.8rem 3rem;
+    outline: none;
+    border: none;
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+.errors{
+  border-color: red;
+  color: red;
+}
+.container{
+    max-width: 99.2rem;
+    margin: 0 auto;
+}
+.auth__container {
+    position: relative;
+    width: 56rem;
+    padding: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    display: flex;
+    align-items: center;
+}
+.auth__form {
+  width: 100%;
+}
+.auth__container-footer{
+    padding: 1.5rem 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo-container{
+  position: relative;
+  width: 56rem;
+  padding: 2rem;
+  margin: 0 auto;
+  /*background-color: steelblue;*/
+}
+.loading-todos:before {
+  position: absolute;
+  content: "";
+  width: 30px;
+  height: 30px;
+  top: 50%;
+  left: 50%;
+  margin-top: -15px;
+  margin-left: -15px;
+  border-radius: 50%;
+  border: 3px solid lightgray;
+  border-top-color: coral;
+  animation: spinner 0.7s linear infinite;
+}
+
+.todo__form {
+  width: 100%;
+  padding: 1.5rem 0;
+  /*background-color: yellow;*/
+}
+
+.todo__form form {
+  width: 100%;
+  /*backgroundcolor: blue;*/
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.5rem 0;
+}
+
+.input-field .input {
+  width: 100%;
+  padding: 0.8rem 0.15rem;
+  border: none;
+  outline: none;
+  background-color: rgb(235, 235, 235);
+  font-size: 1.4rem;
+  color: rgb(14, 11, 11);
+}
+
+.textarea {
+  width: 100%;
+  resize: none;
+  padding: 0 0.15rem;
+  outline: none;
+  border: none;
+  background-color: rgb(235, 235, 235);
+  font-size: 1.4rem;
+}
+
+.todoModal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 1200;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.todo__form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1.8rem;
+  width: 56rem;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+}
+
+.add-todo {
+  position: fixed;
+  right: 5rem;
+  bottom: 5rem;
+  background-color: red;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  line-height: 5rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.add-todo fa {
+  color: #fff;
+  font-size: 3rem;
+}
+
+.close{
+  background-color: red;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  line-height: 3rem;
+  font-size: 2rem;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}

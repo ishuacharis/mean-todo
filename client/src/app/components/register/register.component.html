@@ -1,0 +1,50 @@
+<div class="auth__container">
+ <div class="auth__form">
+   <form [formGroup]="registerForm" (ngSubmit)="register()">
+     <div class="input-field">
+       <input type="text" formControlName="username" class="input" placeholder="Username">
+       <div class="errors" *ngIf="username.invalid && 
+          (username.dirty || username.touched)">
+         <span *ngIf="username.errors.required">
+           username is required
+         </span>
+       </div>
+       <div class="errors">
+        <span *ngIf="usernameErr">
+          {{ usernameErr }}
+        </span>
+       </div>
+     </div>
+     <div class="input-field">
+       <input type="text" formControlName="email" class="input" placeholder="Email">
+       <div class="errors" *ngIf="email.invalid && (email.dirty || email.touched)">
+         <span *ngIf="email.errors.required">
+           email is required
+         </span>
+         <span *ngIf="email.errors.email">
+           Invalid email
+         </span>
+       </div>
+       <div class="errors">
+         <span *ngIf="emailErr">
+           {{ emailErr }}
+         </span>
+       </div>
+     </div>
+     <div class="input-field">
+       <input type="password" formControlName="password" class="input" placeholder="Password">
+       <div class="errors" *ngIf="password.invalid && 
+        (password.dirty || password.touched)">
+         <span *ngIf="password.errors.required">
+           password is required
+         </span>
+       </div>
+     </div>
+     <button type="submit" class="btn" [disabled]="!registerForm.valid">Register</button>
+   </form>
+   <div class="auth__container-footer">
+     <a routerLink="/login" class="link">Have an account?</a>
+
+   </div>
+ </div>
+</div>

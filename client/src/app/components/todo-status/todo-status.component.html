@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="todo-container">
+        <div class="todo-item" *ngIf="todo">
+            <div class="header">
+                <div class="header-detail">
+                    <div class="todo__id">
+                        {{ todo.id }}
+                    </div>
+                    <div class="todo__create-by">
+                       <span>
+                           {{todo.create_by.username}}
+                       </span>
+                       <span>
+                         {{todo.title}}
+                       </span>
+                    </div>
+                </div>
+              <div>
+                  <i class="fas fa-trash"></i>
+              </div>
+            </div>
+            <div class="body">
+                <p class="todo__text">{{todo.desc}}</p>
+            </div>
+            <div class="counts">
+                <div *ngIf="todo.retweet_by?.length > 0">
+                    {{ todo.retweet_by.length }} retweets
+                </div>
+                <div *ngIf="todo.like_by?.length > 0">
+                    {{ todo.like_by.length }} likes
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

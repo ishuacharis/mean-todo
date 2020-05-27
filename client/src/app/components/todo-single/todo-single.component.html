@@ -1,0 +1,68 @@
+<a [routerLink]="[todo.create_by.username,'status', todo._id]" class="todo-item">
+  <div class="left">
+      <div class="todo__id">
+        {{ todo.id }} 
+      </div>
+  </div> 
+  <div class="right">
+      <div class="todo__header">
+        <div class="todo__title">
+          {{ todo.title }}
+        </div>
+        <div *ngIf="todo.create_by.username === username" class="todo__remove-icon" (click)="onDelete($event,todo._id)">
+          <i class="fas fa-trash"></i>
+        </div>
+      </div>
+      <div class="todo__section">
+        <div class="todo__section-text">
+          {{ todo.desc }}
+        </div>
+      </div>
+      <div class="todo__tags">
+        <ul class="todo__tags-list">
+          <li *ngFor="let tag of todo.tags" class="todo__tags-item">
+            <span>
+              {{ tag }}
+            </span>
+            <span *ngIf="todo.create_by.username === username" (click)="onDeleteTag(todo,tag)">
+              <i class="fas fa-times"></i>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="todo__dates">
+        <span *ngIf="todo.is_completed else completedBlock">
+          {{ todo.updated_date}} completed
+        </span>
+        <ng-template #completedBlock>
+          <span>
+            {{ todo.created_date }} created
+          </span>
+        </ng-template>
+        <span *ngIf="todo.create_by.username === username" class="iscompleted-btn">
+          <input type="checkbox" [checked]="todo.is_completed" (change)="onCheck($event,todo)" id="status">
+          <span>{{ todo.is_completed ? 'ON' : 'OFF' }}</span>
+        </span>
+      </div>
+      <div class="todo__footer">
+        <span>
+            <i class="far fa-comment"></i>
+        </span>
+        <span>
+          <i class="fas fa-retweet"></i>
+        </span>
+        <span>
+          <i class="far fa-heart"></i>
+        </span>
+        <span>
+          <i class="far fa-envelope"></i>
+        </span>
+      </div>
+      <!---- 
+      <div class="todo__buttons">
+        <button class="btn btn-edit" id="edit">Edit</button>
+        <button class="btn btn-view" id="view">View</button>
+      </div>
+    -->
+  </div>
+</a>

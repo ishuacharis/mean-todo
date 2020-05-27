@@ -1,0 +1,48 @@
+.todo-item {
+    background-color:  red;
+    padding: 0.5rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.2rem;
+}
+.header-detail{
+    display: flex;
+    align-items: center;
+}
+.todo__id {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  background-color: steelblue;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.todo__create-by {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    margin-left: 0.4rem;
+    cursor: pointer;
+}
+.todo__create-by span {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.todo__create-by:hover span:first-child{
+    text-decoration: underline;
+}
+
+.body{
+    margin-bottom: 1.2rem;
+}
+.todo__text{
+    font-size: 1.6rem;
+}

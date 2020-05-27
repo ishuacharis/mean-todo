@@ -1,0 +1,33 @@
+ 
+<div class="auth__container">
+  <div class="auth__form">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="input-field">
+        <input type="text" formControlName="username" class="input" placeholder="Email or Username">
+        <div class="errors" *ngIf="username.invalid && 
+              (username.dirty || username.touched)">
+          <span *ngIf="username.errors.required">
+            username is required
+          </span>
+          <span *ngIf="username.errors.username">
+            invalid username
+          </span>
+        </div>
+      </div>
+      <div class="input-field">
+        <input type="password" formControlName="password" class="input" placeholder="Password">
+        <div class="errors" *ngIf="password.invalid && 
+              (password.dirty || password.touched)">
+          <span *ngIf="password.errors.required">
+            password is required
+          </span>
+        </div>
+      </div>
+      <button type="submit" [disabled]="!loginForm.valid" class="btn">Login</button>
+    </form>
+    <div class="auth__container-footer">
+      <a routerLink="/register" class="link">Don't have an account?</a>
+      <a routerLink="/register" class="link">Forgot Password?</a>
+    </div>
+  </div>
+</div>

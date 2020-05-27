@@ -1,0 +1,50 @@
+ <div id="todoModal" class="todoModal"
+ [ngStyle]="{display:isModalOpen? 'block':'none'}" >
+   <div class="todo__form">
+     <div class="close" (click)="onModalClose($event)">
+      <i class="fas fa-times"></i>
+     </div>
+     <form 
+     #todoFormDirective="ngForm" [formGroup]="todoForm" 
+     (ngSubmit)="addTodo($event)">
+       <div class="input-field">
+         <input type="text" formControlName="title" class="input" placeholder="Todo title">
+          <div class="errors" *ngIf="title.invalid && 
+                (title.dirty || title.touched)">
+            <span *ngIf="title.errors.required">
+              title is required
+            </span>
+            <span *ngIf="title.errors.title">
+              {{ title.errors.title.message }}
+            </span>
+          </div>
+        </div>
+       <div class="input-field">
+         <input type="text" formControlName="tags" class="input" placeholder="Todo tags">
+          <div class="errors" *ngIf="tags.invalid && 
+              (tags.dirty || tags.touched)">
+            <span *ngIf="tags.errors.required">
+              tags is required
+            </span>
+            <span *ngIf="tags.errors.tags">
+              {{ tags.errors.tags.message }}
+            </span>
+          </div>
+        </div>
+       <div class="input-field">
+         <textarea formControlName="desc" class="textarea" cols="30" rows="10"></textarea>
+         <div class="errors" *ngIf="desc.invalid && 
+              (desc.dirty || desc.touched)">
+           <span *ngIf="desc.errors.required">
+             desc is required
+           </span>
+           <span *ngIf="desc.errors.desc">
+             {{ desc.errors.desc.message }}
+           </span>
+         </div>
+       </div>
+       <button [disabled] ="!todoForm.valid"
+       type="submit" class="btn" >Add Todo</button>
+     </form>
+   </div>
+ </div>
